@@ -1,0 +1,23 @@
+{
+  "name": "ccounter",
+  "version": "1.0.2",
+  "description": "Just a simple counter that when comes to the end go back to zero and when go less than zero return to total index",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://hellopath@github.com/hellopath/counter.git"
+  },
+  "author": "hellopath <contact@pa-th.com> (http://pa-th.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellopath/counter/issues"
+  },
+  "homepage": "https://github.com/hellopath/counter#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}

@@ -1,6 +1,9 @@
 "use strict";
 
-function Counter(total) {
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var Counter = function Counter(total) {
 	var index = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
 
 	var props = {
@@ -31,4 +34,6 @@ function Counter(total) {
 	};
 	prevNext();
 	return { inc: inc, dec: dec, props: props };
-}
+};
+
+exports.default = Counter;

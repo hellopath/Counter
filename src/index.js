@@ -1,4 +1,4 @@
-function Counter(total, index = 0) {
+const Counter = (total, index = 0) => {
 	let props = {
 		index: index,
 		total: total,
@@ -24,3 +24,5 @@ function Counter(total, index = 0) {
 	prevNext()
 	return { inc, dec, props }
 }
+
+export default Counter

@@ -1,6 +1,6 @@
 {
   "name": "ccounter",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Just a simple counter that when comes to the end go back to zero and when go less than zero return to total index",
   "main": "dist/index.js",
   "scripts": {

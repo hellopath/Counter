@@ -32,8 +32,16 @@ var Counter = function Counter(total) {
 		if (props.prev < 0) props.prev = props.total - 1;
 		if (props.next > props.total - 1) props.next = 0;
 	};
+	var set = function set() {
+		var val = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+
+		if (val < 0) val = 0;
+		if (val > props.total - 1) val = props.total - 1;
+		props.index = val;
+		prevNext();
+	};
 	prevNext();
-	return { inc: inc, dec: dec, props: props };
+	return { inc: inc, dec: dec, set: set, props: props };
 };
 
 exports.default = Counter;

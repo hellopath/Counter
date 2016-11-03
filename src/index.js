@@ -1,18 +1,33 @@
-const Counter = (total, index = 0) => {
+const Counter = (total, index = 0, loop = true) => {
 	const props = {
-		index: index,
-		total: total,
 		prev: 0,
-		next: 0
+		next: 0,
+		index,
+		total,
+		loop
 	}
 	const inc = (val = 1) => {
 		props.index += val
-		if(props.index > props.total - 1) props.index = 0
+		if(props.index > props.total - 1) {
+			if(props.loop === false) {
+				props.index -= val
+				return false
+			} else {
+				props.index = 0
+			}
+		}
 		prevNext()
 	}
 	const dec = (val = 1) => {
 		props.index -= val
-		if(props.index < 0) props.index = props.total - 1
+		if(props.index < 0) {
+			if(props.loop === false) {
+				props.index += val
+				return false
+			} else {
+				props.index = props.total - 1
+			}
+		}
 		prevNext()
 	}
 	const prevNext = () => {

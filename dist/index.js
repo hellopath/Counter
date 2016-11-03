@@ -5,25 +5,41 @@ Object.defineProperty(exports, "__esModule", {
 });
 var Counter = function Counter(total) {
 	var index = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+	var loop = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
 
 	var props = {
+		prev: 0,
+		next: 0,
 		index: index,
 		total: total,
-		prev: 0,
-		next: 0
+		loop: loop
 	};
 	var inc = function inc() {
 		var val = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
 
 		props.index += val;
-		if (props.index > props.total - 1) props.index = 0;
+		if (props.index > props.total - 1) {
+			if (props.loop === false) {
+				props.index -= val;
+				return false;
+			} else {
+				props.index = 0;
+			}
+		}
 		prevNext();
 	};
 	var dec = function dec() {
 		var val = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
 
 		props.index -= val;
-		if (props.index < 0) props.index = props.total - 1;
+		if (props.index < 0) {
+			if (props.loop === false) {
+				props.index += val;
+				return false;
+			} else {
+				props.index = props.total - 1;
+			}
+		}
 		prevNext();
 	};
 	var prevNext = function prevNext() {
